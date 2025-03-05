@@ -1,12 +1,15 @@
-def load_db():
-    """Charge les utilisateurs depuis le fichier JSON."""
-    with open(file_name, "r") as file:
-        return json.load(file)
+import json
 
-def save_db(data):
+def load_db(file):
+    """Charge les utilisateurs depuis le fichier JSON."""
+    with open(file, "r") as f:
+        return json.load(f)
+
+def save_db(data, file):
     """Sauvegarde les données dans le fichier JSON."""
-    with open(file_name, "w") as file:
+    with open(file, "w") as file:
         json.dump(data, file, indent=4)
+
 
 
 def list_users():
