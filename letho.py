@@ -1,7 +1,5 @@
 import random
 
-from shalom import load_db, save_db
-
 file_name = "db.json"
 
 def forgot_password(email: str):
@@ -32,6 +30,3 @@ def forgot_password(email: str):
             save_db(db_content, file_name)
             return True
     return False
-
-email = input("mail: ")
-print(forgot_password(email))

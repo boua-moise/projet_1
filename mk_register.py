@@ -1,17 +1,15 @@
 import json
 import os
 
-file_name = "bd.json"
+file_name = "db.json"
 
 def register(email: str, password: str):
     if os.path.exists(file_name):
-        with open(file_name, "r+") as f:
-            data = json.load(f)
-            data["users"].append({"email": email, "password": password, "role": "USER"})
-            json.dump(data, f, indent=4)
+            data = load_db(file_name)
+            data["Users"].append({"email": email, "password": password, "role": "USER"})
+            save_db(data, file_name)
     else:
-        with open(file_name, "w") as f:
-            data = {"users": [{"email": email, "password": password, "role": "USER"}]}
-            json.dump(data, f, indent=4)
-    
+        data = {"users": [{"email": email, "password": password, "role": "USER"}]}
+        save_db(data, file_name)
+
     print("Inscription réussie !")

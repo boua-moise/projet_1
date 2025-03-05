@@ -12,10 +12,10 @@ def save_db(data, file):
 
 
 
-def list_users():
+def list_users(file):
     """Affiche la liste des utilisateurs enregistrés."""
-    bd_content = load_db()  # On charge les données du fichier JSON
-    users = bd_content.get("users", [])  # On récupère la liste des utilisateurs
+    bd_content = load_db(file)  # On charge les données du fichier JSON
+    users = bd_content.get("Users", [])  # On récupère la liste des utilisateurs
 
     if not users:  # Si la liste est vide
         print("Aucun utilisateur enregistré.")
@@ -24,3 +24,4 @@ def list_users():
     print("Liste des utilisateurs :")
     for user in users:  # On parcourt chaque utilisateur
         print(f"Email: {user['email']}, Rôle: {user['role']}")  # On affiche son email et son rôle
+
